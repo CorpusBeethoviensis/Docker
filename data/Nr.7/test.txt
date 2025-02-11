@@ -1,0 +1,30 @@
+--- /Users/adriannachtwey/Desktop/docker-python/data/Nr.7/samples/mae/samples_0/1803_BdA_ED_Op33_7_mue.mei
++++ /Users/adriannachtwey/Desktop/docker-python/data/Nr.7/samples/mae/samples_0/1808_Zulehner_Op33_7_mue.mei
+@@ measure 0, staff 0, beat 0.0 @@
+-(StaffGroup:barline) StaffGroup[0, 1] barTogether=False
++(StaffGroup:barline) StaffGroup[0, 1] barTogether=True
+@@ measure 80, staff 1, beat 1.0 @@
++(TextExpression) TX:Senza sord.
+@@ measure 80, staff 1, beat 1.0 @@
+-(TextExpression) TX:senza
+                                    sord:
+@@ measure 80, staff 2, beat 1.0 @@
+-(Note:artic) A1 (quarter note), articulations=[spiccato]
++(Note:artic) A1 (quarter note), articulations=[]
+@@ measure 88, staff 1, beat 0.5 @@
+-(TextExpression) TX:con sord:
+@@ measure 88, staff 1, beat 1.0 @@
++(TextExpression) TX:con sord.
+@@ measure 128, staff 1, beat 1.5 @@
+-(Note:accid) E3 (eighth note)
++(Note:accid) E3 natural (eighth note)
+@@ measure 138, staff 1, beat 0.5 @@
+-(Dynamic:offset) DY:f offset=-0.5
+@@ measure 138, staff 1, beat 1.0 @@
++(Dynamic:offset) DY:f offset=0.0
+@@ measure 138, staff 1, beat 3.0 @@
+-(Chord:artic) C4 (quarter note), articulations=[staccato]
++(Chord:artic) C4 (quarter note), articulations=[]
+@@ measure 138, staff 2, beat 3.0 @@
+-(Chord:artic) A2 (quarter note), articulations=[staccato]
++(Chord:artic) A2 (quarter note), articulations=[]

@@ -1,0 +1,11 @@
+music21
+musicdiff
+
+matplotlib
+
+pandas
+numpy
+
+termcolor
+
+converter21
