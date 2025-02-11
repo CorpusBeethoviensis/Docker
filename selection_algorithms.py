@@ -6,7 +6,7 @@ from termcolor import colored
 def random_selection(measures, sample_size = None):
     if sample_size is not None:
         if sample_size >= len(measures):
-            print(f"Error: Fuck you I'm not Beethoven. Only {len{measures}} Measures in the piece.")
+            print(f"Error: Fuck you I'm not Beethoven. Only {len(measures} Measures in the piece.")
         else:
             required_measures = sample_size
     else:
@@ -27,7 +27,7 @@ def measures_elements(measures, sample_size = None):
     available_measures = [int(key) for key in measures.keys()]     #Liste mit noch nicht ausgewählten Takten
     if sample_size is not None:
         if sample_size >= len(measures):
-            print(f"Error: Fuck you I'm not Beethoven. Only {len{measures}} Measures in the piece.")
+            print(f"Error: Fuck you I'm not Beethoven. Only {len(measures)} Measures in the piece.")
         else:
             required_measures = sample_size
     else:
