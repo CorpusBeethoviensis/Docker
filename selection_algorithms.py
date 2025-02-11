@@ -1,19 +1,12 @@
 import random as rm
 import numpy as np
 from termcolor import colored
-""" def create_dict():
-    from random import randrange
-    values = ['value1', 'value2']
-    measures = {"key " + str(i): values[0] for i in range(100)}
-    measures["key " + str(rm.randrange(100))] = values[1]
 
-    return measures
- """
 
 def random_selection(measures, sample_size = None):
     if sample_size is not None:
         if sample_size >= len(measures):
-            print(f"Error: Fuck you I'm not Beethoven. Only {len{measures}} Measures in the piece."}
+            print(f"Error: Fuck you I'm not Beethoven. Only {len{measures}} Measures in the piece.")
         else:
             required_measures = sample_size
     else:
