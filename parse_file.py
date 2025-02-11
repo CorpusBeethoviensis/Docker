@@ -46,23 +46,3 @@ def parse_file(filename):
 if __name__ == "__main__":
     measures = parse_file()
     print(type(measures))
-
-
-        
-
-    
-
-    #print(measures)
-    #root_tag = root.tag.split('}')
-    #elements = []
-    #print("Das Wurzelelement ist", root_tag[-1])
-    #for child in root.iter():
-    #        tag_list = child.tag.split('}')
-    #        tag = tag_list[-1]
-    #        print(tag)
-    #        if tag in element_list:
-    #            if tag in elements:
-    #                return(elements)
-    #            else:       
-    #                elements.append(tag)
-    #print(elements)
