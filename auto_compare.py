@@ -9,77 +9,8 @@ from pathlib import Path
 import sys
 
 
-""" class DirectorySelector(tk.Tk):
-        def __init__(self,):
-        super().__init__()
-        self.main_directory = None
-        self.output_dir = None
-
-        self.withdraw()
-        self.title('Selection for comparison')
-
-        main_directory_button = ttk.Button(self, text="Select a directory with mei-files", command=self.select_main_directorie)
-        main_directory_button.pack(expand=True)
-
-        output_dir_button = ttk.Button(self, text="Select a directory to save results", command=self.select_out_dir)
-        output_dir_button.pack(expand=True)
-
-        submit_button = ttk.Button(self, text="Submit", command=self.submit) 
-        submit_button.pack(expand=True)
-
-        self.protocol("WM_DELETE_WINDOW", self.on_closing)
-        self.setup_ui(self)
-
-def setup_ui(self, window):
-        window_width = 300
-        window_height = 200 
-        #  get the screen dimension
-        screen_width = self.winfo_screenwidth()
-        screen_height = self.winfo_screenheight()
-
-        # find the center point
-        center_x = int(screen_width/2 - window_width / 2)
-        center_y = int(screen_height/2 - window_height / 2)
-
-        # set the position of the window to the center of the screen
-        window.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
-
-    def select_main_directorie(self):
-        self.main_directory= fd.askdirectory(title="Select a directory (Cancel to finish)") 
-        
-
-    def select_out_dir(self):
-        self.output_dir = fd.askdirectory(title="Select output directory")
-        if self.main_directory and self.output_dir:
-            print(f'You selected {self.main_directory} with mei-files and {self.output_dir} to save the comparison-results to.')
-
-    def submit(self):
-        if self.main_directory and self.output_dir:
-            print('Oops, you did it again! Closing window now.')
-            self.quit()
-            self.destroy()
-        else:
-            print(f"You're not done yet. Finish the job!")
-
-    def on_closing(self):
-        self.quit()
-        self.destroy() """
-
-    
-""" def select_directories_window(): 
-    selector = DirectorySelector() 
-    selector.deiconify() # Zeigt das Fenster an 
-    selector.mainloop() # Startet die Hauptschleife 
-
-
-    return selector.main_directory, selector.output_dir """
-
-    
-        
-
 def compare_files_in_directories(main_directory, output_dir): 
     subdirs = sorted(os.listdir(main_directory))
-    #tasks = []
 
     for subdir in subdirs: 
         full_subdir_path = os.path.join(main_directory, subdir) 
@@ -97,9 +28,7 @@ def compare_files_in_directories(main_directory, output_dir):
                     output_file = os.path.join(new_output_dir, f"{os.path.basename(file1)}_{os.path.basename(file2)}.txt") 
                     #tasks.append((file1, file2, output_file))
                     compare_files(file1, file2, output_file)
-    """ with multiprocessing.Pool() as pool:
-        pool.starmap(compare_files, tasks) """
-                    
+
 
 def compare_files(file1, file2, output_file):
     print(file1, file2)
@@ -140,18 +69,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-""" def compare_all_files(base_dirs, output_dir, file_extension):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-
-    # Annahme: Alle Ordner haben die gleiche Anzahl an Dateien und die Dateien sind in der gleichen Reihenfolge sortiert
-    files_in_dirs = [sorted([f for f in os.listdir(base_dir) if f.endswith(file_extension)]) for base_dir in base_dirs]
-    num_files = min(len(files) for files in files_in_dirs)  # Anzahl der Dateien im kleinsten Ordner
-
-    for i in range(num_files):
-        for j in range(len(base_dirs)):
-            for k in range(j + 1, len(base_dirs)): 
-                file1 = os.path.join(base_dirs[j], files_in_dirs[j][i]) 
-                file2 = os.path.join(base_dirs[k], files_in_dirs[k][i])  """
