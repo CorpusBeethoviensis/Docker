@@ -1,6 +1,6 @@
 import os
 import io
-import multiprocessing
+import multiprocessing as mp
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import ttk, messagebox
@@ -11,6 +11,7 @@ import sys
 
 def compare_files_in_directories(main_directory, output_dir): 
     subdirs = sorted(os.listdir(main_directory))
+    tasks = []
 
     for subdir in subdirs: 
         full_subdir_path = os.path.join(main_directory, subdir) 
@@ -26,8 +27,11 @@ def compare_files_in_directories(main_directory, output_dir):
                     os.makedirs(new_output_dir, exist_ok=True)
 
                     output_file = os.path.join(new_output_dir, f"{os.path.basename(file1)}_{os.path.basename(file2)}.txt") 
-                    #tasks.append((file1, file2, output_file))
-                    compare_files(file1, file2, output_file)
+                    tasks.append((file1, file2, output_file))
+                    #compare_files(file1, file2, output_file)
+    
+    with mp.Pool() as pool:
+        pool.starmap(compare_files, tasks)
 
 
 def compare_files(file1, file2, output_file):
