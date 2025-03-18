@@ -26,3 +26,5 @@ termcolor==2.5.0
 tzdata==2025.1
 urllib3==2.3.0
 webcolors==24.11.1
+tqdm
+progressbar2

@@ -9,9 +9,16 @@ from pathlib import Path
 import sys
 
 
-def compare_files_in_directories(main_directory, output_dir): 
-    subdirs = sorted(os.listdir(main_directory))
+def compare_files_in_directories(main_directory): 
+    subdirs = []
     tasks = []
+
+    for dirpath, dirnames, filenames in os.walk(main_directory):
+        for dirname in dirnames:
+            if dirname.startswith('sample'):
+                subdirs.append(os.path.join(dirpath, dirname))
+            else:
+                pass
 
     for subdir in subdirs: 
         full_subdir_path = os.path.join(main_directory, subdir) 
@@ -23,7 +30,7 @@ def compare_files_in_directories(main_directory, output_dir):
                     file1 = os.path.join(full_subdir_path, files[i]) 
                     file2 = os.path.join(full_subdir_path, files[j])
 
-                    new_output_dir = os.path.join(output_dir, f"{subdir}_result") 
+                    new_output_dir = os.path.join(main_directory, f"{subdir}_result") 
                     os.makedirs(new_output_dir, exist_ok=True)
 
                     output_file = os.path.join(new_output_dir, f"{os.path.basename(file1)}_{os.path.basename(file2)}.txt") 
@@ -64,9 +71,8 @@ def compare_files(file1, file2, output_file):
 # In der Funktion musicdiff.diff den Aufruf von get_text_output anpassen
 
 
-def main(): 
-    main_directory = input("Select directory with MEI-files to compare: ")
-    output_dir = input("Select a directory to safe the txt-result-files to")
+def main(main_directory, output_dir): 
+    
     if main_directory and output_dir: 
         compare_files_in_directories(main_directory, output_dir) 
     else: print("Please select all required directories.")

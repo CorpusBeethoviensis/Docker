@@ -19,7 +19,11 @@ def copy_until_measure(elem, parent, selected_measures, ns):
             
     for child in elem:
         if child.tag.endswith('measure'):
-            n = int(child.attrib.get('n'))
+            try:
+                n = int(child.attrib.get('n'))
+            except Exception as e:
+                print(f'Error: {e}')
+                continue
             if n not in selected_measures:
                 continue
         if child.tag.endswith('sb') or child.tag.endswith('pb'):
@@ -29,8 +33,8 @@ def copy_until_measure(elem, parent, selected_measures, ns):
 
     return parent
 
-def make_file(selected_measures,  main_directory, base_directory, i, state, short_algo):
-    files = sorted([f for f in os.listdir(main_directory) if f.endswith('.mei')])
+def make_file(selected_measures,  directory, base_directory, i, state, short_algo):
+    files = sorted([f for f in os.listdir(directory) if f.endswith('.mei')])
     print(files)
     
 
@@ -44,10 +48,12 @@ def make_file(selected_measures,  main_directory, base_directory, i, state, shor
 
     for file in files:
         new_file = os.path.join(new_directory, f"{os.path.splitext(file)[0]}_{short_algo}.mei")
-        filename = os.path.join(main_directory, file)
+        filename = os.path.join(directory, file)
 
         tree = ET.parse(filename)
         root = tree.getroot()
+
+        print(f'Wurzel: {root}')
 
         ns = {"mei": "http://www.music-encoding.org/ns/mei"}
         ET.register_namespace('', ns["mei"])

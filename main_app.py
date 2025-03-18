@@ -1,9 +1,10 @@
 from main_create import main as main_create
-from auto_compare import main as main_compare
+from auto_compare import compare_files_in_directories as main_compare
 
 def main():
-    main_create()
-    main_compare()
+    main_directory = input("Where's all ur data?")
+    main_create(main_directory)
+    main_compare(main_directory)
 
 
 
